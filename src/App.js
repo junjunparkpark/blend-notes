@@ -3,16 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app" >
+        <nav className="todo-navigation">
+          <ul className="page-wrapper action-buttons">
+            <li><button>+ Add Note</button></li>
+          </ul>
+        </nav>
+        <section className="todo-list page-wrapper">
+          
+        </section>
+        
       </div>
     );
   }
