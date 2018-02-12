@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { NoteListItem } from './components';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
     };
+  }
+
+  addNote() {
+    
   }
 
   render() {
@@ -18,10 +23,11 @@ class App extends Component {
             <li><button>+ Add Note</button></li>
           </ul>
         </nav>
-        <section className="todo-list page-wrapper">
-          
+        <section className="page-wrapper">
+          <div className="todo-list">
+            {this.state.notes.map(note => <NoteListItem key={note.id} note={note} />)}
+          </div>
         </section>
-        
       </div>
     );
   }

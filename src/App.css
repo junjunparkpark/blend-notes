@@ -13,12 +13,27 @@
   padding: 40px 0;
 }
 
+
+.action-buttons ul {
+  list-style-type: none;
+  padding: 40px 0;
+}
+
 .action-buttons li {
   float:right;
 }
 
 .app-title {
   font-size: 1.5em;
+}
+
+#category-buttons li {
+  float: left !important;
+}
+
+#category-buttons li a:active:hover {
+  border: 1px;
+  border-color: #AAB1B5;
 }
 
 .page-wrapper {
@@ -30,4 +45,53 @@
 /* BUTTONS */
 .btn {
   border-radius: 10px;
+  color: white;
+}
+
+.btn-submit {
+  background-color: #66C4CC;
+}
+
+.btn-inactive {
+  background-color: #B0DFE3
+}
+
+.btn-cancel {
+  background-color: #D2D3D4;
+}
+
+.btn-red {
+  background-color: #FAA9B0;
+}
+
+.btn-green {
+  background-color: #B5ECD1;
+}
+
+.btn-yellow {
+  background-color: #FBDBAE;
+}
+
+.btn-blue {
+  background-color: #AECCFB;
+}
+
+
+
+/* COLORS */
+
+.red {
+  color: #FAA9B0;
+}
+
+.green {
+  color: #B5ECD1;
+}
+
+.yellow {
+  color: #FBDBAE;
+}
+
+.blue {
+  color: #AECCFB;
 }
