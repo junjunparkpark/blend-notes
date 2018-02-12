@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { NoteListItem } from './components';
+import { NoteListItem, Modal, NoteForm } from './components';
 
 class App extends Component {
   constructor() {
@@ -9,10 +9,12 @@ class App extends Component {
     this.state = {
       notes: [],
     };
+
+    this.addNote.bind(this);
   }
 
   addNote() {
-    
+
   }
 
   render() {
@@ -20,7 +22,11 @@ class App extends Component {
       <div className="app" >
         <nav className="todo-navigation">
           <ul className="page-wrapper action-buttons">
-            <li><button>+ Add Note</button></li>
+            <li>
+              <Modal buttonText="+ Add Note">
+                <NoteForm addNote={this.addNote} />
+              </Modal>
+            </li>
           </ul>
         </nav>
         <section className="page-wrapper">
