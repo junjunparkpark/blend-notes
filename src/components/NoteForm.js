@@ -25,16 +25,19 @@ export class NoteForm extends Component {
   }
 
   handleChange(e) {
-    console.log('MULTI LINE ', e.target.value)
     this.setState({
       [e.target.name]: e.target.value
-    })
+    }, console.log(this.state))
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addNote(this.state);
-    this.props.toggle();
+    if (this.state.category && this.state.title && this.state.body) {
+      this.props.addNote(this.state);
+      this.props.toggle();
+    } else {
+      alert('All fields must be completed');
+    }
   }
 
   render() {
@@ -62,10 +65,10 @@ export class NoteForm extends Component {
         </div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="note-title">
-            <input className="note-input h1" type="text" placeholder="Untitled" autoFocus/> 
+            <input className="note-input h1" name="title" onChange={(e) => this.handleChange(e)} type="text" placeholder="Untitled" autoFocus/> 
           </div>
           <div className="note-body">
-            <textarea className="note-input paragraph" name="body" placeholder="Just start typing here" rows="30"></textarea>
+            <textarea onChange={(e) => this.handleChange(e)} className="note-input paragraph" name="body" placeholder="Just start typing here" rows="30"></textarea>
           </div>
           <div className="modal-footer">
             <div className="left">
@@ -73,7 +76,7 @@ export class NoteForm extends Component {
             </div>
 
             <div className="right">
-              <button className={(category && title && body ? 'submit' : 'ianctive-submit')} type="submit">Save</button>
+              <button className={(category && title && body ? 'submit' : 'inactive-submit')} type="submit">Save</button>
             </div>
           </div>
         </form>

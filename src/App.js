@@ -10,11 +10,18 @@ class App extends Component {
       notes: [],
     };
 
-    this.addNote.bind(this);
+    this.addNote = this.addNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
-  addNote() {
+  addNote(note) {
+    let notes = this.state.notes.concat(note);
+    this.setState({ notes });
+  }
 
+  deleteNote(targetNote) {
+    let notes = this.state.notes.filter(note => note.id !== targetNote.id);
+    this.setState({ notes });
   }
 
   render() {
@@ -31,7 +38,7 @@ class App extends Component {
         </nav>
         <section className="page-wrapper">
           <div className="todo-list">
-            {this.state.notes.map(note => <NoteListItem key={note.id} note={note} />)}
+            {this.state.notes.map(note => <NoteListItem key={note.id} note={note} deleteNote={this.deleteNote}/>)}
           </div>
         </section>
       </div>
